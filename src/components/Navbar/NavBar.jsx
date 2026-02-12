@@ -5,7 +5,7 @@ import { LayoutDashboard, Droplets, Dumbbell, Lightbulb } from "lucide-react";
 const NavBar = () => {
   const linkStyle = ({ isActive }) =>
     `flex items-center gap-2 py-2 text-gray-900 transition duration-300 ${
-      isActive ? "text-green-500 font-semibold" : "hover:text-green-500"
+      isActive ? "font-semibold" : ""
     }`;
 
   return (
@@ -24,25 +24,49 @@ const NavBar = () => {
         {/* Center - NavLinks */}
         <ul className="flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
           <li>
-            <NavLink to="/" className={linkStyle}>
+            <NavLink
+              to="/"
+              className={linkStyle}
+              style={({ isActive }) => ({
+                color: isActive ? "#238b45" : undefined,
+              })}
+            >
               <LayoutDashboard size={18} />
               Dashboard
             </NavLink>
           </li>
           <li>
-            <NavLink to="/water" className={linkStyle}>
+            <NavLink
+              to="/water"
+              className={linkStyle}
+              style={({ isActive }) => ({
+                color: isActive ? "#238b45" : undefined,
+              })}
+            >
               <Droplets size={18} />
               WaterIntake
             </NavLink>
           </li>
           <li>
-            <NavLink to="/exercise" className={linkStyle}>
+            <NavLink
+              to="/exercise"
+              className={linkStyle}
+              style={({ isActive }) => ({
+                color: isActive ? "#238b45" : undefined,
+              })}
+            >
               <Dumbbell size={18} />
               Exercise
             </NavLink>
           </li>
           <li>
-            <NavLink to="/tips" className={linkStyle}>
+            <NavLink
+              to="/tips"
+              className={linkStyle}
+              style={({ isActive }) => ({
+                color: isActive ? "#238b45" : undefined,
+              })}
+            >
               <Lightbulb size={18} />
               Tips
             </NavLink>
@@ -52,7 +76,10 @@ const NavBar = () => {
         {/* Right Side - ID + Logout */}
         <div className="flex items-center gap-4">
           <span className="text-gray-900 font-medium">ID: 12345</span>
-          <button className="bg-green-400 text-white font-medium rounded-lg text-sm px-4 py-2 hover:bg-green-500 transition">
+          <button
+            className="text-white font-medium rounded-lg text-sm px-4 py-2 transition"
+            style={{ backgroundColor: "#238b45" }}
+          >
             Logout
           </button>
         </div>
