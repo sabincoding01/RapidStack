@@ -113,7 +113,7 @@ export default function Dashboard() {
           <div className="flex-1 min-w-62.5 bg-linear-to-br from-white to-green-50 border border-green-200 rounded-2xl p-5 min-h-40  hover-scale ">
             <div className="flex justify-between">
               <span className="font-bold text-lg text-green-700">Water Intake</span>
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-xl">
+              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-3xl">
                 💧
               </div>
             </div>
@@ -125,7 +125,7 @@ export default function Dashboard() {
           <div className="flex-1 min-w-62.5 bg-linear-to-br from-white to-green-50 border border-green-200 rounded-2xl p-5 min-h-40  hover-scale ">
             <div className="flex justify-between">
               <span className="font-bold text-lg text-green-700">Exercise</span>
-              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-xl">
+              <div className="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-3xl">
                 🏃
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function Dashboard() {
           <div className="flex-1 min-w-62.5 bg-linear-to-br from-green-700 to-green-500 rounded-2xl p-5 min-h-40 text-white hover-scale ">
             <div className="flex justify-between">
               <span className="font-bold text-lg">Daily Tip</span>
-              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-xl">
+              <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center text-3xl">
                 💡
               </div>
             </div>

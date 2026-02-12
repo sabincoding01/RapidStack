@@ -14,6 +14,12 @@ export default function WaterTracker() {
     setLogs([...logs, { amount, time: new Date().toLocaleTimeString() }]);
   };
 
+  const deleteEntry = (idx) => {
+    const deletedAmount = logs[idx].amount;
+    setTotal((prev) => Math.max(prev - deletedAmount, 0));
+    setLogs((prev) => prev.filter((_, i) => i !== idx));
+  };
+
   const progress = Math.min((total / dailyGoal) * 100, 100);
 
   return (
@@ -55,7 +61,7 @@ export default function WaterTracker() {
             value={customAmount}
             onChange={(e) => setCustomAmount(e.target.value)}
             className="w-full border rounded px-3 py-2 focus:ring-2"
-            style={{ borderColor: "#238b45", focusRingColor: "#238b45" }}
+            style={{ borderColor: "#238b45" }}
           />
           <input
             type="number"
@@ -63,7 +69,7 @@ export default function WaterTracker() {
             value={dailyGoal}
             onChange={(e) => setDailyGoal(Number(e.target.value))}
             className="w-full border rounded px-3 py-2 focus:ring-2"
-            style={{ borderColor: "#238b45", focusRingColor: "#238b45" }}
+            style={{ borderColor: "#238b45" }}
           />
           <button
             onClick={() => {
@@ -90,11 +96,20 @@ export default function WaterTracker() {
             {logs.map((log, idx) => (
               <li
                 key={idx}
-                className="border-b pb-2"
+                className="border-b pb-2 flex items-center justify-between"
                 style={{ color: "#238b45" }}
               >
-                <span className="font-semibold">💧 {log.amount} ml</span> –{" "}
-                {log.time}
+                <span>
+                  <span className="font-semibold">💧 {log.amount} ml</span> –{" "}
+                  {log.time}
+                </span>
+                <button
+                  onClick={() => deleteEntry(idx)}
+                  className="ml-4 text-red-500 hover:text-red-700 font-bold text-sm px-2 py-1 rounded hover:bg-red-50 transition-colors"
+                  title="Delete entry"
+                >
+                  🗑️ Delete
+                </button>
               </li>
             ))}
           </ul>
